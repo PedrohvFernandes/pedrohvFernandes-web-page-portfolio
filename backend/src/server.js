@@ -11,10 +11,10 @@ const app = express()
 
 app.use(express.json())
 app.use(cors({
-  origin: '*',
+  origin: 'https://pedrohvfernandes-web-page-portfolio.vercel.app',
   optionsSuccessStatus: 200,
   methods: ['POST'],
-  // allowedHeaders: allowCors(handler),
+  allowedHeaders: allowCors(handler),
 }))
 app.use('/', router)
 
