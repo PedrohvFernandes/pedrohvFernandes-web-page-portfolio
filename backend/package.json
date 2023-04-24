@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "src/index.js",
+  "main": "src/server.js",
   "scripts": {
-    "dev": "node --watch src/index.js"
+    "dev": "node --watch src/server.js"
   },
   "keywords": [],
   "author": "",
