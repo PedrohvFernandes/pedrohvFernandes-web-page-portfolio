@@ -58,7 +58,7 @@ export function sendMail() {
         .then(response => {
           if (response.status === 200) {
             visibleMessageResultWorked(messageResultWorked, messageResultError)
-            messageResult(messageResultWorked, 'Email enviado com sucesso!')
+            messageResult(messageResultWorked, 'Email enviado com sucesso! Verifique sua caixa de entrada :)')
             emailSent(submitButton, resetButton)
             messageResult(submitButton, 'Email enviado')
             document.getElementById('#form').reset()
