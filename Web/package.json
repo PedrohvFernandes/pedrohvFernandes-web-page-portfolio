@@ -1,0 +1,16 @@
+{
+  "name": "pedrohvfernandes.github.io",
+  "version": "1.0.0",
+  "description": "Aqui você ira encontrar todos os meus projetos feitos, quais tecnologias eu uso, minhas experiencias, minhas redes sociais para quem sabe, você me chamar para uma vaga de emprego 😅. E alem disso, o layout totalmente responsivel, usando o conceito mobile-first, que consiste em escrever todo o codigo primeiramente preparado para o mobile e na responsividade escrever voltado para desktop, tendo uma facilidade de adpatar o layout em varias telas. Então lhe garanto que você não tera problemas em ver meu Portfolio em qualquer lugar, seja por um celular, deskptop, notebook ou ate em telas maiores. E claramente no meu proprio [Github](https://github.com/PedrohvFernandes), [CV](https://drive.google.com/file/d/1oSKo99CBj6xD9wS4hrCvxPUv67OEK1Ud/view) e [Linkedin](https://www.linkedin.com/in/pedro-henrique-vieira-fernandes/) você ira encontrar mais complementos do meu perfil profissional 😎, espero que analise com muito carinho meu perfil, te garanto que não ira se arrepender.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx browser-sync -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.29.1",
+    "dotenv": "^16.0.3"
+  }
+}

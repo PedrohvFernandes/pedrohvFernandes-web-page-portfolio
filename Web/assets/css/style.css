@@ -1,0 +1,865 @@
+/* =============== Progressbar =============== */
+
+.progressbar {
+  position: fixed;
+  background: var(--brand-light);
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  transform-origin: top left;
+  transform: scale(0, 0);
+  border-radius: 8px;
+  width:100vw;
+  height: 6px;
+
+  transition: all 0.3s ease-in-out;
+}
+
+/* ============ NAVIGATION =========== */
+nav {
+  display: flex;
+
+  height: var(--nav-height);
+
+  position: fixed;
+  top: 0;
+  width: 100vw;
+
+  z-index: 100;
+}
+
+nav .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav.scroll {
+  background: var(--primary-color);
+}
+
+nav button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Efeito da linha de baixo nos itens do menu quando estao na seçao especifica */
+
+nav#navigation .menu ul li a {
+  color: white;
+  opacity: 0.7;
+}
+
+nav#navigation .menu li a.active {
+  opacity: 1;
+  font-weight: 700;
+}
+
+nav#navigation .menu li a::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background-color: var(--bg-light);
+
+  position: relative;
+  bottom: -2rem;
+  left: -0.5rem;
+
+  display: block;
+
+  transition: width 0.2s;
+}
+
+nav#navigation .menu li a.active::after {
+  padding-inline: 0.8rem;
+  width: 100%;
+}
+
+/* ============ MENU-EXPANDED =========== */
+.open-menu {
+  position: relative;
+}
+
+body.menu-expanded {
+  overflow: hidden;
+}
+
+nav .close-menu,
+nav .menu,
+body.menu-expanded .open-menu {
+  position: fixed;
+}
+
+body.menu-expanded > :not(nav) {
+  visibility: hidden;
+}
+
+.menu,
+.close-menu,
+body.menu-expanded .open-menu {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.menu-expanded .menu,
+body.menu-expanded .close-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu {
+  transform: translateY(100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto; 
+}
+
+body.menu-expanded .menu {
+  top: 0;
+  left: 0;
+  background: var(--primary-color);
+
+  width: 100vw;
+  height: 100vh;
+
+  padding-top: var(--nav-height);
+
+  /* 300ms equivale a 3s */
+  transition: transform 300ms;
+  transform: translateY(0);
+}
+
+.menu ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4.8rem;
+
+  margin-top: 6rem;
+
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3.1rem;
+
+  color: white;
+}
+
+.menu .buttons-menu{
+  display: flex;
+  flex-direction: column;
+}
+
+.menu .button {
+  background: white;
+  border: none;
+  border-radius: 4rem;
+
+  color: var(--primary-color);
+  font-weight: 700; /*bold*/
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+  text-transform: uppercase;
+
+  display: inline-block;
+  padding: 1.6rem 3.2rem;
+
+  gap: 1.6rem;
+  cursor: pointer;
+
+  margin-top: 4.8rem;
+  /* margin-bottom: 8rem; */
+  margin-bottom: 2rem;
+
+  transition: background 0.2s;
+}
+
+.menu .button:hover {
+  background-color: var(--primary-color);
+  color: white;
+
+  filter: brightness(1.2);
+}
+
+.menu .button.active {
+  background-color: var(--primary-color);
+  color: white;
+
+  filter: brightness(1.2);
+}
+
+body.menu-expanded .logo,
+body.menu-expanded nav .close-menu {
+  position: relative;
+  z-index: 100;
+}
+
+/* ============ HOME =========== */
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  padding-top: calc(4.1rem + var(--nav-height));
+}
+
+#home h1 {
+  font-size: 2.5rem;
+  line-height: 130%;
+  margin-bottom: 1rem;
+}
+
+#home h1::after {
+  content: '|';
+  opacity: 1;
+  animation: pisca 0.7s infinite;
+  color: var(--primary-color);
+}
+
+#home .emoji {
+  font-size: 2.5rem;
+}
+
+#home .scroll {
+  position: absolute;
+  bottom: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-start;
+}
+
+#home .scroll p {
+  padding-block: 1rem;
+  font-size: 1.6rem;
+}
+
+#home .scroll svg {
+  animation: scroll-down 3s infinite forwards;
+  width: 1.8rem;
+  fill: var(--bg-dark);
+}
+
+/* ============ ABOUT-ME =========== */
+
+#about .div-my-img {
+  max-width: 80%;
+  margin-inline: auto;
+}
+
+#about .div-my-img img {
+  border-left: 0.5rem solid var(--primary-color);
+  filter: opacity(55%);
+  transition: 0.4s;
+  width: 100%;
+}
+
+#about .div-my-img img:hover {
+  filter: opacity(70%);
+  border-left: 0.5rem solid var(--bg-light);
+}
+
+#about .brazil {
+  font-size: 2.5rem;
+  font-weight: 700;
+  animation: pisca 4s infinite;
+  opacity: 1;
+}
+
+#about .content p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+/* ============ EXPERIENCIA =========== */
+
+#experience ul {
+  margin-top: 2rem;
+  font-size: 1.76rem;
+}
+#experience ul li {
+  padding-block: 1rem;
+  margin-block: 0.5rem;
+  background-color: var(--bg-light);
+  border-bottom: 0.3rem solid var(--bg-dark);
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+#experience ul li:hover,
+#experience ul li.active {
+  background-color: var(--bg-dark);
+  border-color: white;
+  font-weight: 600;
+  color: var(--bg-light);
+}
+
+#experience .experiencie-description {
+  margin-top: 2rem;
+  position: relative;
+}
+
+#experience .experiencie-description h4 {
+  font-size: 3rem;
+}
+
+#experience .experiencie-description-local {
+  font-size: 1.6rem;
+  padding-block: 1.5rem;
+  color: var(--bg-dark);
+  font-weight: 600;
+}
+
+#experience .experiencie-description-local-two {
+  font-size: 2rem;
+}
+
+#experience .experiencie-description div {
+  display: none;
+}
+
+#experience .experiencie-description div.active {
+  display: block;
+}
+
+#experience .experiencie-description div.active.show-right {
+  animation: 0.5s forwards show-right;
+}
+
+/* ============ PROJETOS =========== */
+
+#projects .wrapper {
+  margin: 0;
+  width: auto;
+}
+
+#projects .content {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 2rem;
+}
+
+#projects .content h3 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  border-bottom: 0.1rem solid;
+  cursor: pointer;
+}
+
+#projects .project {
+  padding: 2rem;
+  /* transition: transform 0.2s linear; */
+  margin-inline: auto;
+  width: 100%;
+  box-shadow: var(--shadow);
+}
+
+#projects .project .details-projects {
+  display: none;
+}
+
+#projects .project .details-projects.active-project {
+  display: block;
+  overflow-y: auto;
+  height: 50vh;
+}
+
+#projects .project .details-projects.active-project.show-down {
+  animation: 0.5s forwards show-down;
+}
+
+#projects .project p {
+  text-align: start;
+}
+
+#projects .project .project-stack {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+#projects .btn {
+  width: fit-content;
+}
+
+.project-stack .project-stack-item {
+  margin: 0.5rem;
+  font-weight: 500;
+  font-size: 1.3rem;
+  border-bottom: 0.1rem solid;
+}
+
+/* ============ TECNOLOGIAS tanto para desktop e mobile =========== */
+#technologies .skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-block: 2rem;
+}
+
+#technologies .skill-list .skill-list-item {
+  display: block;
+  color: var(--bg-light);
+  border-bottom: 0.1rem solid var(--bg-light);
+  box-shadow: rgb(0 0 0 / 15%) 0px 3px 3px 0px;
+  background-color: var(--bg-dark);
+
+  margin: 0.5rem;
+  padding: 0.8em 1.4em;
+
+  font-weight: 600;
+  text-transform: uppercase;
+
+  transition: transform 0.2s ease-in-out;
+
+  cursor: pointer;
+}
+.description-technologies {
+  height: 25vh;
+  overflow-y: auto;
+}
+#technologies #descriptionTechnologies.show-right {
+  animation: 0.5s forwards show-right;
+}
+
+#technologies #descriptionTechnologies .linkMyProfileGitHub {
+  border-bottom: 1px solid var(--bg-dark);
+  color: var(--bg-dark);
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+/* ============ Contatos =========== */
+#contact .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+#contact .side-button {
+  margin: 1rem 1rem;
+}
+
+#contact .btn {
+  width: fit-content;
+}
+
+/* ============ EmailContact =========== */
+#EmailContact .card {
+  padding: 4rem;
+  margin-top: 2rem;
+  border-radius: 4px;
+  border: 3px solid var(--color-shadow, currentColor);
+  box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+#EmailContact .card h4 {
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
+  background-color:var(--bg-light);
+  color: var(--bg-dark);
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+#EmailContact form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.input-label {
+  position: relative;
+}
+
+ .input__field {
+  width: 100%;
+  border: 3px solid currentColor;
+  /* padding: calc(var(--size-bezel) * 1.5) var(--size-bezel); */
+  padding: 1.5rem;
+  color: currentColor;
+  background: transparent;
+  border-radius: var(--size-radius);
+  box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
+  font-size: 1.5rem;
+}
+
+#EmailContact textarea {
+  resize: vertical;
+}
+
+.input__label {
+  position: absolute;
+  left: 0;
+  top: 7px;
+  padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * 0.5);
+  margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * 0.5);
+  white-space: nowrap;
+  transform: translate(0, 0);
+  transform-origin: 0 0;
+  background: var(--bg-dark);
+  transition: transform 120ms ease-in;
+  font-weight: bold;
+  line-height: 1.2;
+  font-size: 1.3rem;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.send-email:disabled,
+.reset-email:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+#message-result-worked{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: green;
+  background-color: var(--bg-dark);
+  padding: 1rem;
+  border-radius: 4px;
+  border: 3px solid var(--color-shadow, currentColor);
+  box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
+}
+
+#message-result-error {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: red;
+  background-color: var(--bg-dark);
+  padding: 1rem;
+  border-radius: 4px;
+  border: 3px solid var(--color-shadow, currentColor);
+  box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
+}
+
+/* Se tiver focus e sem o focus mas com conteudo, ou seja o placeholder do irmão do input__label que no caso é o input estiver apagado ele ativa*/
+/* :not:placeholder-shown + .input__label {
+  transform: translate(.25rem, -65%) scale(.8);
+  color: var(--color-accent);
+} */
+
+:focus + .input__label {
+  transform: translate(.25rem, -65%) scale(.8);
+  top: 0;
+}
+
+.input__field:focus:valid + .input__label,
+.input__field:not(:focus):valid + .input__label {
+  transform: translate(.25rem, -65%) scale(.8);
+  color: green;
+  top: 0;
+}
+
+.input__field:focus:invalid + .input__label,
+.input__field:not(:focus):invalid + .input__label {
+  color: rgb(164, 3, 3);
+}
+
+/* ============ FOOTER para DESKTOP e MOBILE =========== */
+
+footer {
+  padding-block: 3rem;
+  text-align: center;
+  color: var(--primary-color-two);
+}
+
+footer .heart {
+  margin-inline: 0.2rem;
+}
+
+footer .heart svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+footer .heart path {
+  fill: var(--primary-color);
+}
+
+footer p,
+footer h4 {
+  display: inline-block;
+}
+
+footer .text-primary {
+  transition: 0.5s all;
+  font-weight: 700;
+}
+
+footer .text-primary:hover {
+  color: var(--primary-color-two);
+}
+
+/* BACK TO TOP */
+#backToTopButton {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 2;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(100%);
+  transition: 200ms;
+}
+
+#backToTopButton.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE DESKTOP */
+
+@media (min-width: 1172px) {
+  /*=== NAVIGATION =================================*/
+  /* reset */
+  nav#navigation .wrapper * {
+    margin: 0;
+    padding: 0;
+    visibility: initial;
+    /* display: initial; */
+    opacity: initial;
+    flex-direction: initial;
+    position: initial;
+    font-size: initial;
+    font-weight: initial;
+    transform: initial;
+    color: initial;
+    background-color: initial;
+    filter: initial;
+  }
+
+  nav#navigation .close-menu,
+  nav#navigation .open-menu {
+    display: none;
+  }
+
+  nav#navigation .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 60%;
+    overflow: initial;
+    /* overflow: unset; */
+  }
+
+  nav#navigation .menu ul {
+    display: flex;
+    gap: 3.2rem;
+  }
+
+  nav#navigation .logo {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  nav#navigation .menu ul li a {
+    color: var(--primary-color);
+    opacity: 0.7;
+  }
+
+  .menu .buttons-menu{
+    gap: 1rem;
+  }
+  
+  
+  nav#navigation .menu a.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2.4rem;
+
+    border: 1px solid var(--primary-color);
+    border-radius: 4rem;
+
+    color: var(--primary-color);
+
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    text-transform: uppercase;
+  }
+
+  nav#navigation .menu a.button:hover {
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+  }
+
+  nav#navigation.scroll .menu ul li a {
+    color: var(--brand-light-2);
+  }
+
+  nav#navigation.scroll .menu a.button {
+    border-color: white;
+    color: white;
+  }
+
+  nav#navigation .menu li a.active,
+  nav#navigation .menu li a:hover {
+    opacity: 1;
+    font-weight: 700;
+  }
+
+  nav#navigation .menu li a::after {
+    background-color: var(--primary-color);
+  }
+
+  nav#navigation.scroll .menu li a::after {
+    background-color: white;
+  }
+
+  nav#navigation .menu li a.active::after,
+  nav#navigation .menu li a:hover::after {
+    padding-inline: 0.8rem;
+    width: 100%;
+  }
+
+  nav#navigation.scroll .menu li a.active,
+  nav#navigation.scroll .menu li a:hover {
+    opacity: 1;
+  }
+
+  nav#navigation.scroll .menu a.button.active,
+  nav#navigation.scroll .menu a.button:hover {
+    background-color: var(--primary-color);
+    filter: brightness(1.2);
+    border: none;
+  }
+
+  /*=== HOME =================================*/
+  #home {
+    padding-top: var(--nav-height);
+  }
+
+  #home h1 {
+    font-size: 4.5rem;
+  }
+
+  #home .scroll p {
+    font-size: 1.8rem;
+  }
+
+  #home .cv-links {
+    display: flex;
+    justify-content: center;
+  }
+
+  #home .cv-links .btn {
+    margin: 2rem;
+  }
+
+  #about .wrapper,
+  #experience .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'A B';
+  }
+
+  #about .col-a,
+  #experience .col-a {
+    align-self: center;
+  }
+
+  #experience {
+    display: flex;
+    align-items: center;
+  }
+  #projects .project {
+    box-shadow: none;
+  }
+  #projects .project.active-project {
+    box-shadow: var(--shadow);
+  }
+
+  #technologies #descricaoTecnologia {
+    font-size: 1.8rem;
+  }
+
+  /* Contatos */
+  #contact .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  /* Forms de envio de email */
+
+  #EmailContact .button-group {
+    flex-direction: row;
+  }
+
+  #EmailContact .card h4 {
+    padding: 2rem;
+    font-size: 2rem;
+  }
+
+}
+@media (min-width: 545px) {
+  #home h1 {
+    font-size: 3rem;
+  }
+
+  #home .emoji {
+    font-size: 3.2rem;
+  }
+
+  .input__label {
+    font-size: 1.8rem;
+  }
+}
+@media (min-width: 480px) {
+  /* Projetos */
+  #projects .content {
+    display: grid;
+    /* 
+    As unidades em e ex dependem da fonte e podem ser diferentes para cada elemento no documento. em é, simplesmente, o tamanho da fonte. Em um elemento com a fonte de 2in, 1em será, portanto, 2in. Empressando tamanhos, como margins e paddings, com em significa que eles são relativos ao tamanho da fonte e se o usuário tem uma fonte grande (ex. uma tela grande) ou uma fonte pequena (ex. dispositivo handheld) , os tamanhos serão proporcionais. Declarações como 'text-indent: 1.5em' e 'margin: 1em' são extremamente comuns em CSS.
+    */
+    grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
+    gap: 2rem;
+  }
+
+  #projects .project {
+    width: min(50rem, 100%);
+  }
+
+  #projects .project p {
+    text-align: inherit;
+  }
+
+  .input__field{
+    font-size: 1.8rem;
+  }
+  
+}

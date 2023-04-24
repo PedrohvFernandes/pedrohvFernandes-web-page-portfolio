@@ -1,0 +1,382 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  font-size: 1.6rem;
+  text-align: center;
+  /* Não conta a largura da barra */
+  /* overflow: overlay; */
+  /* background: var(--primary-color); */
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+section {
+  min-height: 100vh;
+  padding-block: 10rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+input, textarea{
+  outline: none;
+  border: none;
+}
+
+/* =========== REUTILIZAVEL ============= */
+
+.wrapper {
+  width: min(50rem, 100%);
+  /* margin-right: auto;
+  margin-left: auto; */
+  margin-inline: auto;
+  padding-inline: 2.4rem;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.6rem 2rem;
+  font-size: 1.3rem;
+
+  margin-inline: auto;
+  margin-bottom: 1rem;
+
+  border-radius: 0.2rem;
+
+  width: fit-content;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  gap: 1rem;
+
+  transition: 200ms all;
+
+  /* Pro after ficar na camada do button e não do pai */
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  /* width: 0;
+  border: 0.1rem solid var(--bg-dark);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; */
+  /* transition: width 0.2s ease-in-out; */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 100%;
+  transition: right 0.2s ease-in-out;
+}
+
+/* ============ Para fundos DARK ============ */
+
+.bg-dark {
+  background: var(--bg-dark);
+  color: var(--bg-light);
+}
+
+.bg-dark .btn,
+#EmailContact .bg-dark .btn {
+  background: var(--bg-dark);
+  border: 0.2rem solid var(--bg-light);
+  color: var(--bg-light);
+}
+
+.bg-dark .btn::before,
+#EmailContact .bg-dark .btn::before {
+  background-color: var(--bg-light);
+}
+
+.bg-dark .btn path {
+  fill: var(--bg-light);
+}
+
+.bg-dark .btn:hover,
+.bg-dark .btn:hover path,
+#EmailContact .bg-dark .btn:hover {
+  color: var(--bg-dark);
+  fill: var(--bg-dark);
+}
+
+.bg-dark .btn-stroke path {
+  stroke: var(--bg-light);
+}
+
+.bg-dark .btn-stroke:hover path {
+  stroke: var(--bg-dark);
+}
+
+
+/* ============ Para fundos LIGHT ============ */
+
+.bg-light {
+  background-color: var(--bg-light);
+  color: var(--bg-dark);
+}
+
+.bg-light .btn,
+#EmailContact .bg-light .btn {
+  background: var(--bg-light);
+  border: 0.2rem solid var(--bg-dark);
+  color: var(--bg-dark);
+}
+
+.bg-light .btn::before,
+#EmailContact .bg-light .btn::before  {
+  background-color: var(--bg-dark);
+}
+
+.bg-light .btn path {
+  fill: var(--bg-dark);
+}
+
+.bg-light .btn:hover,
+.bg-light .btn:hover path,
+#EmailContact .bg-light .btn:hover {
+  color: var(--bg-light);
+  fill: var(--bg-light);
+}
+
+.bg-light .btn-stroke path {
+  stroke: var(--bg-dark);
+}
+
+.bg-light .btn-stroke:hover path {
+  stroke: var(--bg-light);
+}
+
+.bg-dark .btn:hover::before,
+.bg-light .btn:hover::before {
+  /* width: 100%; */
+  right: 0;
+  z-index: -1;
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
+.wrapper,
+.content {
+  word-wrap: break-word;
+}
+#projects .project.active-project,
+#projects .project:hover,
+#technologies .skill-list .skill-list-item:hover {
+  transform: translateY(-0.8rem) !important;
+}
+
+section header h2,
+section header h4 {
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+}
+
+section header h4 {
+  font-size: 1.5rem;
+  margin-block: 2rem;
+  line-height: 150%;
+}
+
+section header h2 {
+  font-size: 2rem;
+  line-height: 3.9rem;
+  margin-bottom: 3rem;
+}
+
+header h2::before,
+header h2::after {
+  font-size: 4.5rem;
+  color: var(--primary-color);
+  filter: brightness(1.2);
+  animation: pisca 1.5s infinite;
+  opacity: 1;
+}
+
+header h2::before {
+  content: '{';
+}
+
+header h2::after {
+  content: '}';
+}
+
+/* =============== KEYFRAMES ================== */
+
+@keyframes pisca {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes scroll-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-1.5rem);
+  }
+  30% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}
+
+@keyframes show-right {
+  from {
+    opacity: 0;
+    /* translate3d(tx, ty, tz) */
+    transform: translate3d(-3rem, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes show-down {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -3rem, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* ========= CONFIG PADRAO DE CORES PARA  ============= */
+#backToTopButton circle {
+  fill: var(--primary-color);
+}
+
+#navigation h3 .logo {
+  color: var(--primary-color-two);
+}
+
+nav#navigation .menu li a {
+  transition: opacity 0.4s;
+}
+
+body.menu-expanded #navigation h3 .logo,
+#navigation.scroll h3 .logo {
+  color: white;
+}
+
+button.open-menu path,
+#contact li path {
+  stroke: var(--primary-color-two);
+}
+
+#navigation.scroll button.open-menu path {
+  stroke: white;
+}
+
+.btn-github svg {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Responsive */
+
+@media (min-width: 650px) {
+  section header h4 {
+    font-size: 2rem;
+  }
+
+  .btn {
+    padding: 1.6rem 3.2rem;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    overflow: auto;
+  }
+
+  #navigation .wrapper,
+  #home .wrapper,
+  #about .wrapper,
+  #experience .wrapper,
+  #contact .wrapper {
+    width: min(112rem, 100%);
+  }
+
+  .col-a {
+    grid-area: A;
+  }
+
+  .col-b {
+    grid-area: B;
+  }
+
+  section header h4 {
+    font-size: 2.2rem;
+  }
+
+  .btn{
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 673px) {
+  section header h2 {
+    font-size: 3rem;
+    line-height: 5.2rem;
+  }
+
+  #EmailContact .wrapper {
+    width: min(112rem, 100%);
+  }
+}
