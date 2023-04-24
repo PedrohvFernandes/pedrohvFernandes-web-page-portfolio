@@ -48,7 +48,7 @@ export function sendMail() {
       sendingEmail(submitButton, resetButton)
       // http://localhost:4000/email
       // https://smtp-envio-de-email-vercel-portfolio.vercel.app/email
-      await fetch(`http://localhost:4000/email`, {
+      await fetch(`https://smtp-envio-de-email-vercel-portfolio.vercel.app/email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
