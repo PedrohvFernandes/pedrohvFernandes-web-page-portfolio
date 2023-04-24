@@ -59,13 +59,18 @@ export function sendMail() {
           if (response.status === 200) {
             visibleMessageResultWorked(messageResultWorked, messageResultError)
             messageResult(messageResultWorked, 'Email enviado com sucesso!')
+            emailSent(submitButton, resetButton)
+            messageResult(submitButton, 'Email enviado')
             document.getElementById('#form').reset()
           } else {
             visibleMessageResultWorked(messageResultError, messageResultWorked)
             messageResult(messageResultError, 'Erro ao enviar o email!')
+            emailSent(submitButton, resetButton)
+            messageResult(submitButton, 'Não foi possível enviar')
           }
-        }).finally(() => {
-          emailSent(submitButton, resetButton)
+        }).catch(error => {
+          visibleMessageResultWorked(messageResultError, messageResultWorked)
+          messageResult(messageResultError, 'Erro ao enviar o email!')
         })
     })
 }
@@ -91,7 +96,6 @@ function sendingEmail(submitButton, resetButton) {
 }
 
 function emailSent(submitButton, resetButton) {
-  submitButton.innerHTML = 'Enviado'
   setInterval(() => {
     submitButton.innerHTML = 'Enviar'
     submitButton.removeAttribute('disabled')
