@@ -12,7 +12,7 @@ export function sendMail() {
       let messageResultError = document.getElementById('message-result-error')
       let submitButton = document.getElementById('submit-button')
       let resetButton = document.getElementById('reset-button')
-
+  
       if (
         !email.trim() ||
         !name.trim() ||
@@ -27,7 +27,7 @@ export function sendMail() {
         return
       }
 
-      if (!email.includes('@') || !email.includes('.')) {
+      if (!email.includes('@') || !email.includes('.') || !email.includes('com')) {
         visibleMessageResultWorked(messageResultError, messageResultWorked)
         messageResult(messageResultError, 'Email inválido')
         return
@@ -71,6 +71,9 @@ export function sendMail() {
         }).catch(error => {
           visibleMessageResultWorked(messageResultError, messageResultWorked)
           messageResult(messageResultError, 'Erro ao enviar o email!')
+          emailSent(submitButton, resetButton)
+          messageResult(submitButton, 'Não foi possível enviar')
+          console.log(error)
         })
     })
 }
