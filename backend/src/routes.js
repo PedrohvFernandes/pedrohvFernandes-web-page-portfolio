@@ -32,11 +32,11 @@ router.post('/email', async (req, res) => {
           <h4><a href='mailto:${email}' target="_blank">Email do cliente para contato ✉️</a>: ${email}</h4> <br>
         </div>
         <div>
-          <a href='https://pedrohvfernandes-web-page-portfolio.vercel.app' target="_blank">Caso queira retornar ao meu site pessoal :)</a>
+          <a href='https://pedrohvfernandes-web-page-portfolio.vercel.app' target="_blank">Click aqui caso queira retornar ao meu site pessoal :)</a>
 
           <br>
 
-          <a href='https://pedrohvfernandes-web-page-portfolio.vercel.app/#contact' target='_blank'>Caso queira mais contatos</a>
+          <a href='https://pedrohvfernandes-web-page-portfolio.vercel.app/#contact' target='_blank'>Click aqui caso queira mais contatos</a>
         </div>
       </div>
       <footer>
