@@ -12,7 +12,7 @@ export function sendMail() {
       let messageResultError = document.getElementById('message-result-error')
       let submitButton = document.getElementById('submit-button')
       let resetButton = document.getElementById('reset-button')
-  
+
       if (
         !email.trim() ||
         !name.trim() ||
@@ -27,7 +27,11 @@ export function sendMail() {
         return
       }
 
-      if (!email.includes('@') || !email.includes('.') || !email.includes('com')) {
+      if (
+        !email.includes('@') ||
+        !email.includes('.') ||
+        !email.includes('com')
+      ) {
         visibleMessageResultWorked(messageResultError, messageResultWorked)
         messageResult(messageResultError, 'Email inválido')
         return
@@ -51,14 +55,17 @@ export function sendMail() {
       await fetch(`https://smtp-envio-de-email-vercel-portfolio.vercel.app/email`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(_data)
       })
         .then(response => {
           if (response.status === 200) {
             visibleMessageResultWorked(messageResultWorked, messageResultError)
-            messageResult(messageResultWorked, 'Email enviado com sucesso! Verifique sua caixa de entrada :)')
+            messageResult(
+              messageResultWorked,
+              'Email enviado com sucesso! Verifique sua caixa de entrada :)'
+            )
             emailSent(submitButton, resetButton)
             messageResult(submitButton, 'Email enviado')
             document.getElementById('#form').reset()
@@ -68,7 +75,8 @@ export function sendMail() {
             emailSent(submitButton, resetButton)
             messageResult(submitButton, 'Não foi possível enviar')
           }
-        }).catch(error => {
+        })
+        .catch(error => {
           visibleMessageResultWorked(messageResultError, messageResultWorked)
           messageResult(messageResultError, 'Erro ao enviar o email!')
           emailSent(submitButton, resetButton)
@@ -82,9 +90,10 @@ function visibleMessageResultWorked(elementOne, elementTwo) {
   elementOne.style.display = 'flex'
   elementTwo.innerHTML = ''
   elementTwo.style.display = 'none'
-  setInterval(() => {
+  let interval = setInterval(() => {
     elementOne.innerHTML = ''
     elementOne.style.display = 'none'
+    clearInterval(interval)
   }, 5000)
 }
 
@@ -99,10 +108,10 @@ function sendingEmail(submitButton, resetButton) {
 }
 
 function emailSent(submitButton, resetButton) {
-  setInterval(() => {
+  let interval = setInterval(() => {
     submitButton.innerHTML = 'Enviar'
-    submitButton.removeAttribute('disabled')
-    resetButton.removeAttribute('disabled')
-  }, 3000)
-
+    submitButton.removeAttribute('disabled', 'disabled')
+    resetButton.removeAttribute('disabled', 'disabled')
+    clearInterval(interval)
+  }, 5000)
 }
