@@ -43,7 +43,7 @@ export function sendMail() {
           : `R$ ${budget}`
 
       let _data = {
-        email: email.trim(),
+        customerEmailClient: email.trim(),
         name: name.trim(),
         idea: idea.trim(),
         budget: zeroBudget
