@@ -492,8 +492,14 @@ body.menu-expanded nav .close-menu {
   color: currentColor;
   background: transparent;
   border-radius: var(--size-radius);
-  box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
+  box-shadow: none;
+  transition: box-shadow 0.5s ease-in-out;
   font-size: 1.5rem;
+}
+.input__field:hover,
+.input__field:focus,
+.input__field:not(:focus):valid{
+  box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
 }
 
 #EmailContact textarea {
