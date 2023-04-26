@@ -16,7 +16,7 @@ export function sendMail() {
       if (
         !email.trim() ||
         !name.trim() ||
-        !idea.trim ||
+        !idea.trim() ||
         !email ||
         !name ||
         !idea ||
