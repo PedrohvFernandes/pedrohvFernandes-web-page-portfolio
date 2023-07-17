@@ -11,7 +11,7 @@ export function injectedTextViewProjectDescription() {
   if (tabElementProjectDescription.length) {
     function injectedText(index) {
       tabElementProjectDescription[index].innerHTML +=
-        ' Ficarei feliz se deixar uma star no repositorio 😊.'
+        ' Ficarei feliz se deixar uma star no repositório 😊.'
     }
     getIndexInsertText(tabElementProjectDescription, injectedText)
   }

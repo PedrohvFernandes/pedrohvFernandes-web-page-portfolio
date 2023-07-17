@@ -301,6 +301,7 @@ body.menu-expanded nav .close-menu {
 #experience .experiencie-description {
   margin-top: 2rem;
   position: relative;
+  margin-left: 0;
 }
 
 #experience .experiencie-description h4 {
@@ -799,6 +800,9 @@ footer .text-primary:hover {
   #experience {
     display: flex;
     align-items: center;
+  }
+  #experience .experiencie-description {
+    margin-left: 2rem;
   }
   #projects .project {
     box-shadow: none;

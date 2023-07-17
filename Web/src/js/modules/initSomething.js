@@ -160,6 +160,11 @@ export function initShowTechnologyDescription() {
       description:
         'Jest é um framework de testes criado pelo Facebook que visa facilitar a criação de testes unitários em aplicações JavaScript. Ele é mantido pelo Facebook, Instagram e outras empresas e uma comunidade de desenvolvedores individuais.'
     },
+    styledComponentes: {
+      name: 'Styled Componentes',
+      description:
+        'styled-components é uma biblioteca para React e React Native que permite que você use estilos ao nível de componente na sua aplicação. Eles são escritos em uma mistura de JavaScript com CSS. Se você ainda não está familiarizado com styled-components, dê uma olhada no website oficial para ter uma idéia.'
+    },
     figma: {
       name: 'Figma',
       description:
@@ -172,7 +177,8 @@ export function initShowTechnologyDescription() {
     },
     profileGitHub: {
       name: 'My Github Profile Skills',
-      description: 'https://github.com/PedrohvFernandes#user-content-skills-tecnologias-e-ferramentas-nerd_face'
+      description:
+        'https://github.com/PedrohvFernandes#user-content-skills-tecnologias-e-ferramentas-nerd_face'
     },
     reset: {
       name: 'Limpar descrição',
@@ -190,9 +196,9 @@ export function initShowTechnologyDescription() {
       const descriptionTechnologies = document.querySelector(
         '#descriptionTechnologies'
       )
-      descriptionTechnologies.innerHTML = 
+      descriptionTechnologies.innerHTML =
         objectDescriptionTechnologies[item.id].description
-        
+
       if (
         descriptionTechnologies.innerHTML ===
         'https://github.com/PedrohvFernandes#user-content-skills-tecnologias-e-ferramentas-nerd_face'
