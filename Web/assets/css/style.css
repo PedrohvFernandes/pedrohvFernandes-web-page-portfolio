@@ -838,6 +838,12 @@ footer .text-primary:hover {
     font-size: 2rem;
   }
 
+  /* About me */
+  #about .div-my-img {
+    max-width: 80%;
+  }
+  
+
 }
 @media (min-width: 545px) {
   #home h1 {
