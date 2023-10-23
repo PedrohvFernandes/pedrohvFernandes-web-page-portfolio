@@ -19,16 +19,19 @@ function getItemInsertText(element, functionActive) {
 
 export function initTabNav() {
   // Eu pego os vetores dos data-tab seja das li e das div
-  const tabMenu = document.querySelectorAll("[data-tab='menu-experiencie'] li")
+  const tabMenu = document.querySelectorAll("[data-tab='menu-experiencie'] .menu-item")
   const tabContent = document.querySelectorAll(
-    "[data-tab='content-experiencie'] div"
+    "[data-tab='content-experiencie'] .show-description"
   )
   // console.log(tabContent)
   // console.log(tabContent.length)
   // Se os vetores tiverem tamanho coloca uma classe active no primeiro elemento do menu e do vetor que contem as div ao iniciar a aplicação
   if (tabMenu.length && tabContent.length) {
-    tabMenu[0].classList.add('active')
-    tabContent[0].classList.add('active')
+    tabMenu[tabMenu.length - 1].classList.add('active')
+    tabContent[tabContent.length - 1].classList.add('active')
+
+    // tabMenu[0].classList.add('active')
+    // tabContent[0].classList.add('active')
 
     // Active com click
     function activeTab(item, index) {

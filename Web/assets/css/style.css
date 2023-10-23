@@ -319,17 +319,19 @@ body.menu-expanded nav .close-menu {
 
 #experience .experiencie-description-local-two {
   font-size: 2rem;
+  height: 30vh;
+  overflow-y: auto;
 }
 
-#experience .experiencie-description div {
+#experience .experiencie-description .show-description {
   display: none;
 }
 
-#experience .experiencie-description div.active {
+#experience .experiencie-description .show-description.active {
   display: block;
 }
 
-#experience .experiencie-description div.active.show-right {
+#experience .experiencie-description .show-description.active.show-right {
   animation: 0.5s forwards show-right;
 }
 
