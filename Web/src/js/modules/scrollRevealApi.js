@@ -2,7 +2,7 @@ export default ScrollReveal({
   origin: 'top',
   distance: '30px',
   duration: 700,
-  reset: true
+  // reset: true
 }).reveal(`
   #home,
   #home .wrapper,
@@ -29,7 +29,7 @@ export default ScrollReveal({
   #contact .wrapper,
   #contact .wrapper header,
   #contact .wrapper .content,
-  #EmailContact .wrapper,
-  #EmailContact .wrapper header,
-  #EmailContact .wrapper .content,
+  #emailContact .wrapper,
+  #emailContact .wrapper header,
+  #emailContact .wrapper .content,
   #footer`)

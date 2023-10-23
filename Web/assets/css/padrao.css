@@ -49,7 +49,8 @@ button {
   outline: none;
 }
 
-input, textarea{
+input,
+textarea {
   outline: none;
   border: none;
 }
@@ -117,15 +118,13 @@ input, textarea{
   color: var(--bg-light);
 }
 
-.bg-dark .btn,
-#EmailContact .bg-dark .btn {
+.bg-dark .btn {
   background: var(--bg-dark);
   border: 0.2rem solid var(--bg-light);
   color: var(--bg-light);
 }
 
-.bg-dark .btn::before,
-#EmailContact .bg-dark .btn::before {
+.bg-dark .btn::before{
   background-color: var(--bg-light);
 }
 
@@ -134,8 +133,7 @@ input, textarea{
 }
 
 .bg-dark .btn:hover,
-.bg-dark .btn:hover path,
-#EmailContact .bg-dark .btn:hover {
+.bg-dark .btn:hover path{
   color: var(--bg-dark);
   fill: var(--bg-dark);
 }
@@ -148,6 +146,22 @@ input, textarea{
   stroke: var(--bg-dark);
 }
 
+/* ========= Para seções especificas: fundo light e dark sobre cima do light ========== */
+
+#emailContact .bg-dark .btn {
+  background: var(--bg-dark);
+  border: 0.2rem solid var(--bg-light);
+  color: var(--bg-light);
+}
+
+#emailContact .bg-dark .btn::before {
+  background-color: var(--bg-light);
+}
+
+#emailContact .bg-dark .btn:hover {
+  color: var(--bg-dark);
+  fill: var(--bg-dark);
+}
 
 /* ============ Para fundos LIGHT ============ */
 
@@ -156,15 +170,13 @@ input, textarea{
   color: var(--bg-dark);
 }
 
-.bg-light .btn,
-#EmailContact .bg-light .btn {
+.bg-light .btn {
   background: var(--bg-light);
   border: 0.2rem solid var(--bg-dark);
   color: var(--bg-dark);
 }
 
-.bg-light .btn::before,
-#EmailContact .bg-light .btn::before  {
+.bg-light .btn::before {
   background-color: var(--bg-dark);
 }
 
@@ -173,8 +185,7 @@ input, textarea{
 }
 
 .bg-light .btn:hover,
-.bg-light .btn:hover path,
-#EmailContact .bg-light .btn:hover {
+.bg-light .btn:hover path {
   color: var(--bg-light);
   fill: var(--bg-light);
 }
@@ -228,10 +239,10 @@ section header h2 {
 
 header h2::before,
 header h2::after {
-  font-size: 4.5rem;
+  font-size: 3rem;
   color: var(--primary-color);
   filter: brightness(1.2);
-  animation: pisca 1.5s infinite;
+  animation: blinking 1.5s infinite;
   opacity: 1;
 }
 
@@ -245,7 +256,7 @@ header h2::after {
 
 /* =============== KEYFRAMES ================== */
 
-@keyframes pisca {
+@keyframes blinking {
   0%,
   100% {
     opacity: 1;
@@ -365,7 +376,7 @@ button.open-menu path,
     font-size: 2.2rem;
   }
 
-  .btn{
+  .btn {
     font-size: 1.6rem;
   }
 }
@@ -376,7 +387,13 @@ button.open-menu path,
     line-height: 5.2rem;
   }
 
-  #EmailContact .wrapper {
+  header h2::before,
+  header h2::after {
+    font-size: 4.5rem;
+  }
+
+
+  #emailContact .wrapper {
     width: min(112rem, 100%);
   }
 }

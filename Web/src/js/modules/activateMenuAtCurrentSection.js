@@ -33,7 +33,7 @@ export function activateMenuAtCurrentSection(section) {
   }
 }
 
-export function activateMenuAtCurrentSectionProgressbar() {
+export function activateMenuAtCurrentSectionProgressBar() {
   // let progressBarHandler = () => {
   // }
   // O quanto estou distante do topo da pagina sempre muda

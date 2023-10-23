@@ -9,7 +9,7 @@
   transform-origin: top left;
   transform: scale(0, 0);
   border-radius: 8px;
-  width:100vw;
+  width: 100vw;
   height: 6px;
 
   transition: all 0.3s ease-in-out;
@@ -78,7 +78,6 @@ nav#navigation .menu li a:hover::after {
   width: 100%;
 }
 
-
 /* ============ MENU-EXPANDED =========== */
 .open-menu {
   position: relative;
@@ -116,7 +115,7 @@ body.menu-expanded .close-menu {
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-y: auto; 
+  overflow-y: auto;
 }
 
 body.menu-expanded .menu {
@@ -149,7 +148,7 @@ body.menu-expanded .menu {
   color: white;
 }
 
-.menu .buttons-menu{
+.menu .buttons-menu {
   display: flex;
   flex-direction: column;
 }
@@ -334,6 +333,27 @@ body.menu-expanded nav .close-menu {
   animation: 0.5s forwards show-right;
 }
 
+#technologies-used {
+  display: flex;
+  flex-direction: column;
+  margin-block: 2rem;
+  gap: 1rem;
+}
+
+#technologies-used .technologies-used-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--bg-dark);
+}
+
+#technologies-used dd {
+  font-size: 1.6rem;
+  color: var(--bg-light);
+  font-weight: 600;
+  background-color: var(--bg-dark);
+  padding: 0.5rem;
+  border-radius: 4px;
+}
 /* ============ PROJETOS =========== */
 
 #projects .wrapper {
@@ -457,7 +477,7 @@ body.menu-expanded nav .close-menu {
 }
 
 /* ============ EmailContact =========== */
-#EmailContact .card {
+#emailContact .card {
   padding: 4rem;
   margin-top: 2rem;
   border-radius: 4px;
@@ -468,17 +488,17 @@ body.menu-expanded nav .close-menu {
   gap: 3rem;
 }
 
-#EmailContact .card h4 {
+#emailContact .card h4 {
   font-weight: 600;
   text-align: center;
   box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
-  background-color:var(--bg-light);
+  background-color: var(--bg-light);
   color: var(--bg-dark);
   padding: 1rem;
   font-size: 1.5rem;
 }
 
-#EmailContact form {
+#emailContact form {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -488,7 +508,7 @@ body.menu-expanded nav .close-menu {
   position: relative;
 }
 
- .input__field {
+.input__field {
   width: 100%;
   border: 3px solid currentColor;
   /* padding: calc(var(--size-bezel) * 1.5) var(--size-bezel); */
@@ -502,11 +522,11 @@ body.menu-expanded nav .close-menu {
 }
 .input__field:hover,
 .input__field:focus,
-.input__field:not(:focus):valid{
+.input__field:not(:focus):valid {
   box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
 }
 
-#EmailContact textarea {
+#emailContact textarea {
   resize: vertical;
 }
 
@@ -539,8 +559,7 @@ body.menu-expanded nav .close-menu {
   cursor: not-allowed;
 }
 
-
-#message-result-worked{
+#message-result-worked {
   display: none;
   justify-content: center;
   align-items: center;
@@ -575,13 +594,13 @@ body.menu-expanded nav .close-menu {
 } */
 
 :focus + .input__label {
-  transform: translate(.25rem, -65%) scale(.8);
+  transform: translate(0.25rem, -65%) scale(0.8);
   top: 0;
 }
 
 .input__field:focus:valid + .input__label,
 .input__field:not(:focus):valid + .input__label {
-  transform: translate(.25rem, -65%) scale(.8);
+  transform: translate(0.25rem, -65%) scale(0.8);
   color: green;
   top: 0;
 }
@@ -647,8 +666,7 @@ footer .text-primary:hover {
 }
 
 /* RESPONSIVE DESKTOP */
-
-@media (min-width: 1172px) {
+@media (min-width: 1225px) {
   /*=== NAVIGATION =================================*/
   /* reset */
   nav#navigation .wrapper * {
@@ -697,11 +715,10 @@ footer .text-primary:hover {
     opacity: 0.7;
   }
 
-  .menu .buttons-menu{
+  .menu .buttons-menu {
     gap: 1rem;
   }
-  
-  
+
   nav#navigation .menu a.button {
     display: flex;
     justify-content: center;
@@ -765,6 +782,11 @@ footer .text-primary:hover {
     filter: brightness(1.2);
     border: none;
   }
+}
+
+@media (min-width: 1023px) {
+  /*=== NAVIGATION =================================*/
+  /* reset */
 
   /*=== HOME =================================*/
   #home {
@@ -829,11 +851,11 @@ footer .text-primary:hover {
 
   /* Forms de envio de email */
 
-  #EmailContact .button-group {
+  #emailContact .button-group {
     flex-direction: row;
   }
 
-  #EmailContact .card h4 {
+  #emailContact .card h4 {
     padding: 2rem;
     font-size: 2rem;
   }
@@ -842,9 +864,8 @@ footer .text-primary:hover {
   #about .div-my-img {
     max-width: 80%;
   }
-  
-
 }
+
 @media (min-width: 545px) {
   #home h1 {
     font-size: 3rem;
@@ -857,7 +878,14 @@ footer .text-primary:hover {
   .input__label {
     font-size: 1.8rem;
   }
+
+  #technologies-used {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
+
 @media (min-width: 480px) {
   /* Projetos */
   #projects .content {
@@ -877,8 +905,7 @@ footer .text-primary:hover {
     text-align: inherit;
   }
 
-  .input__field{
+  .input__field {
     font-size: 1.8rem;
   }
-  
 }
