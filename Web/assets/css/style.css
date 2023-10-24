@@ -355,6 +355,10 @@ body.menu-expanded nav .close-menu {
   background-color: var(--bg-dark);
   padding: 0.5rem;
   border-radius: 4px;
+  transition: transform 0.2s ease-in-out;
+}
+#technologies-used dd::first-letter {
+  text-transform: uppercase;
 }
 /* ============ PROJETOS =========== */
 

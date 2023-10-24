@@ -215,7 +215,8 @@ textarea {
 }
 #projects .project.active-project,
 #projects .project:hover,
-#technologies .skill-list .skill-list-item:hover {
+#technologies .skill-list .skill-list-item:hover,
+#technologies-used dd:hover {
   transform: translateY(-0.8rem) !important;
 }
 
