@@ -52,3 +52,22 @@
   background: var(--bg-light); /* color of the scroll thumb */
   border-color: var(--primary-color); /* creates padding around scroll thumb */
 }
+
+/* Mozilla */
+
+.description-technologies,
+.experiencie-description-local-two,
+.details-projects {
+  scrollbar-width: auto;
+}
+
+/* Bg-light */
+.description-technologies,
+.experiencie-description-local-two {
+  scrollbar-color: var(--primary-color) transparent;
+}
+
+/* Bg-dark */
+.details-projects {
+  scrollbar-color: var(--bg-light) transparent;
+}
