@@ -215,7 +215,7 @@ body.menu-expanded nav .close-menu {
 #home h1::after {
   content: '|';
   opacity: 1;
-  animation: pisca 0.7s infinite;
+  animation: blinking 0.7s infinite;
   color: var(--primary-color);
 }
 
@@ -267,7 +267,7 @@ body.menu-expanded nav .close-menu {
 #about .brazil {
   font-size: 2.5rem;
   font-weight: 700;
-  animation: pisca 4s infinite;
+  animation: blinking 4s infinite;
   opacity: 1;
 }
 
