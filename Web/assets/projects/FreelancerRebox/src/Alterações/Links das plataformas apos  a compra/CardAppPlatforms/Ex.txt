@@ -1,0 +1,125 @@
+ // No arquivos tsx:
+
+ import {OptionsAppPlatform} from './styles';
+
+ import {
+  ImageAppleStore,
+  ImageGooglePlayStore,
+} from '@assets/images';
+
+ import {
+  ConfigBase
+} from '@config/index';
+
+const Thanks: React.FC = () => {
+  const [menuPlatformIsOpen, setMenuPlatformIsOpen] = useState<boolean>(false);
+  
+  const setMenuPlatformIsClose = (menuPlatformIsClose: boolean) => {
+    setMenuPlatformIsOpen(menuPlatformIsClose);
+  };
+return(
+  <>
+    <Buttons>
+      <ButtonOutline
+        iconLeft={
+        !menuPlatformIsOpen ? IoArrowDownCircle : IoArrowUpCircle
+        }
+        className="buttonMenuPlatforms"
+        onClick={() => setMenuPlatformIsOpen(prevState => !prevState)}
+      >
+        Baixe o nosso App!
+      </ButtonOutline>
+    </Buttons>
+    <OptionsAppPlatform menuPlatformsIsOpen={menuPlatformIsOpen}>
+        <CardAppPlatforms.SubTitleMainMobileOrDesktop className="titleDesktopMain" />
+        <CardAppPlatforms.CardAppPlatform
+          setMenuPlatformIsClose={setMenuPlatformIsClose}
+          menuPlatformIsClose={menuPlatformIsOpen}
+        >
+          <CardAppPlatforms.AppPlatform
+            linkApp={ConfigBase.rebox.appStore.App}
+            namePlatform="IOS"
+            LogoSvg={ImageAppleStore}
+          />
+          <CardAppPlatforms.AppPlatform
+            linkApp={ConfigBase.rebox.playStore.App}
+            namePlatform="Android"
+            LogoSvg={ImageGooglePlayStore}
+          />
+        </CardAppPlatforms.CardAppPlatform>
+    </OptionsAppPlatform>
+  
+  </>
+
+
+)}
+
+// No arquivos styled-components:
+
+type IOptionsAppPlatformProps = {
+  menuPlatformsIsOpen: boolean;
+};
+
+export const Buttons = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  justify-content: center;
+  align-items: center;
+  padding: 3vh 0;
+  > .buttonMenuPlatforms {
+    display: none;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    > .buttonMenuPlatforms {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+`;
+
+export const OptionsAppPlatform = styled.div<IOptionsAppPlatformProps>`
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  > div .titleDesktopMain {
+    font-size: ${({ theme }) => theme.fonts.size.subtitle.medium}px;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}) {
+    > div .titleDesktopMain {
+      font-size: ${({ theme }) => theme.fonts.size.subtitle.small}px;
+    }
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    > div .titleDesktopMain {
+      display: none;
+    }
+    display: ${({ menuPlatformsIsOpen }) =>
+      menuPlatformsIsOpen ? 'flex' : 'none'};
+    position: absolute;
+    @keyframes menu-animation {
+      0% {
+        left: -500px;
+        opacity: 0;
+      }
+      100% {
+        left: 0;
+        opacity: 1;
+      }
+    }
+    top: 38px;
+    animation: menu-animation 0.8s ease-in-out forwards;
+    z-index: 9999;
+  }
+`;
+
+export const BackgroundSpan = styled.span`
+  padding: 0.4vh 0.4vw;
+  border-radius: 4px;
+  background-color: ${({ theme }) => theme.colors.black.opacity.low};
+`;
