@@ -181,7 +181,7 @@ export function initShowTechnologyDescription() {
     profileGitHub: {
       name: 'My Github Profile Skills',
       description:
-        'https://github.com/PedrohvFernandes#user-content-skills-tecnologias-e-ferramentas-nerd_face'
+        'https://github.com/PedrohvFernandes#user-content-skills-Technologies-and-Tools-nerd_face'
     },
     reset: {
       name: 'Limpar descrição',
