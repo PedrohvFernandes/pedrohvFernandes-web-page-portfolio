@@ -19,7 +19,9 @@ function getItemInsertText(element, functionActive) {
 
 export function initTabNav() {
   // Eu pego os vetores dos data-tab seja das li e das div
-  const tabMenu = document.querySelectorAll("[data-tab='menu-experiencie'] .menu-item")
+  const tabMenu = document.querySelectorAll(
+    "[data-tab='menu-experiencie'] .menu-item"
+  )
   const tabContent = document.querySelectorAll(
     "[data-tab='content-experiencie'] .show-description"
   )
@@ -102,6 +104,9 @@ export function initShowTechnologyDescription() {
     '.skill-list .skill-list-item'
   )
 
+  const LINKPROFILESKILLS =
+    'https://github.com/PedrohvFernandes#user-content-skills-Technologies-and-Tools-nerd_face'
+
   let objectDescriptionTechnologies = {
     html: {
       name: 'HTML',
@@ -180,8 +185,7 @@ export function initShowTechnologyDescription() {
     },
     profileGitHub: {
       name: 'My Github Profile Skills',
-      description:
-        'https://github.com/PedrohvFernandes#user-content-skills-Technologies-and-Tools-nerd_face'
+      description: LINKPROFILESKILLS
     },
     reset: {
       name: 'Limpar descrição',
@@ -202,10 +206,7 @@ export function initShowTechnologyDescription() {
       descriptionTechnologies.innerHTML =
         objectDescriptionTechnologies[item.id].description
 
-      if (
-        descriptionTechnologies.innerHTML ===
-        'https://github.com/PedrohvFernandes#user-content-skills-tecnologias-e-ferramentas-nerd_face'
-      ) {
+      if (descriptionTechnologies.innerHTML === LINKPROFILESKILLS) {
         descriptionTechnologies.innerHTML = `<a class='linkMyProfileGitHub' href="${
           descriptionTechnologies.innerHTML
         }" target="_blank">${objectDescriptionTechnologies[item.id].name}</a>`
