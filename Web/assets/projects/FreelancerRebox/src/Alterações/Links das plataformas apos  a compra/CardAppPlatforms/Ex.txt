@@ -1,4 +1,4 @@
- // No arquivos tsx:
+ // Chamando esse componente em algum arquivo tsx:
 
  import {OptionsAppPlatform} from './styles';
 
@@ -54,7 +54,7 @@ return(
 
 )}
 
-// No arquivos styled-components:
+// No arquivo styled-components que está sendo chamado:
 
 type IOptionsAppPlatformProps = {
   menuPlatformsIsOpen: boolean;
